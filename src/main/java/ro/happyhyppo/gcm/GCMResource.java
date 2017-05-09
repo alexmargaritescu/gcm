@@ -21,8 +21,8 @@ public class GCMResource {
     private GCMService gcmService;
 
     @RequestMapping(value = "/send", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public GCMResponse processNotification(@RequestHeader(value="Authorization") String key, @RequestBody String json) {
-        log.debug("Request to send notification " + json + " with key " + key);
+    public GCMResponse processNotification(@RequestHeader(value="Authorization") String authorization, @RequestBody String json) {
+        log.debug("Request to send notification " + json + " with authorization " + authorization);
         return gcmService.processRequest(json);
     }
 
